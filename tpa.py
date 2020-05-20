@@ -94,3 +94,8 @@ def on_player_left(server, player):
         tell_player = list (request_list.keys()) [list (request_list.values()).index (player)]
         server.tell(tell_player, "§7[§3TPA§f/§aINFO§7] §b玩家 §e{} §b已退出, 传送请求自动取消".format(player))
         del request_list[tell_player]
+
+def on_load(server, old_module):
+    server.add_help_message('!!tpa', '传送插件帮助信息')
+    if old_module is not None:
+        player_list = old_module.player_list
